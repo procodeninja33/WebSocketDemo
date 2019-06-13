@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { IndexPageComponent } from './index-page/index-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
     LoginComponent,
     AdminLoginComponent,
     IndexPageComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

@@ -44,3 +44,7 @@
    98%  {color: blue;}
   100%  {color: yellow;}
  }
+
+ .left_btn {
+     position: absolute;
+ }

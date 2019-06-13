@@ -9,33 +9,30 @@ body {
   
   /* Add padding to containers */
   .container1 {
-    padding: 16px;
+    padding: 9px;
     background-color: white;
+    float: left;
+    width: 90%;
   }
   
 
   
   /* Set a style for the submit button */
   .registerbtn {
-    background-color: rgb(66, 105, 121);
+    background-color: rgb(212, 71, 71);
     color: white;
     padding: 16px 20px;
-    margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
     opacity: 0.9;
+    float: right;
   }
   
   .registerbtn:hover {
     opacity: 1;
   }
   
-  /* Add a blue text color to links */
-  a {
-    color: dodgerblue;
-  }
-  
+
   /* Set a grey background color and center the text of the "sign in" section */
   .signin {
     background-color: #f1f1f1;

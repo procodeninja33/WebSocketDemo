@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
 
     this.apis.login(this.userLogin.value).subscribe(data => {
       if (data['status'] === 200) {
-        this.route.navigate(['dashboard']);
-        localStorage.setItem('user_token', JSON.stringify(data['token']));
-        localStorage.setItem('user_type', JSON.stringify(data['data']['u_type']));
+        this.toastr.success(data['message']);
+        this.route.navigate(['home']);
+        localStorage.setItem('currunt_user', JSON.stringify(data['data']));
       } else {
-        this.toastr.error('Inavid Creadantial');
+        this.toastr.error(data['message']);
       }
     });
   }
