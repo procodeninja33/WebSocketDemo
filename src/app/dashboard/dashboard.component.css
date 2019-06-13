@@ -1,0 +1,46 @@
+.blinking {
+    -webkit-animation: blink 10s 2s;
+    animation: blink 10s 2s;
+}
+
+@-webkit-keyframes blink {
+    0%  {color: blue;}
+   10%  {color: yellow;}
+   20%  {color: blue;}
+   29%  {color: yellow;}
+   38%  {color: blue;}
+   46%  {color: yellow;}
+   54%  {color: blue;}
+   61%  {color: yellow;}
+   68%  {color: blue;}
+   74%  {color: yellow;}
+   80%  {color: blue;}
+   85%  {color: yellow;}
+   90%  {color: blue;}
+   92%  {color: yellow;}
+   94%  {color: blue;}
+   96%  {color: yellow;}
+   98%  {color: blue;}
+  100%  {color: yellow;}
+ }
+
+@keyframes blink {
+    0%  {color: blue;}
+   10%  {color: yellow;}
+   20%  {color: blue;}
+   29%  {color: yellow;}
+   38%  {color: blue;}
+   46%  {color: yellow;}
+   54%  {color: blue;}
+   61%  {color: yellow;}
+   68%  {color: blue;}
+   74%  {color: yellow;}
+   80%  {color: blue;}
+   85%  {color: yellow;}
+   90%  {color: blue;}
+   92%  {color: yellow;}
+   94%  {color: blue;}
+   96%  {color: yellow;}
+   98%  {color: blue;}
+  100%  {color: yellow;}
+ }
