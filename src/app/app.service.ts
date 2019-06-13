@@ -38,6 +38,7 @@ export class AppService {
     return this.http.post(this.url + 'addUser', data).pipe(
       map((res: Response) => {
         this.addedUser.next(res);
+        return res;
       })
     );
   }

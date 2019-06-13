@@ -17,13 +17,11 @@ export class DashboardComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit() {
-    const userType = JSON.parse(localStorage.getItem('user_type'));
     this.apis.addedUser.subscribe(data => {
-      if (userType === 'ADMIN') {
-        this.toastr.success(' New user registred...');
-        this.userList.unshift(data['data']);
-        this.id.push(data['data']['_id']);
-      }
+      console.log('hre is adta', data);
+      this.toastr.success(data['message']);
+      this.userList.unshift(data['data']['data']);
+      this.id.push(data['data']['_id']);
     });
     this.fetchUserList();
   }
@@ -37,7 +35,7 @@ export class DashboardComponent implements OnInit {
   logout() {
     localStorage.removeItem('currunt_user');
     this.toastr.warning('logout Successfully.');
-    this.route.navigate(['/'])
+    this.route.navigate(['/']);
   }
 
 }

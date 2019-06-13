@@ -1,33 +1,35 @@
 <br>
 <div class="container text-white">
-  
+
   <button class="btn left_btn" (click)="logout()"> Log out</button>
   <h2 style="text-align: center"> User Details :</h2>
-    <hr> <br>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th> Name </th>
-            <th> Email </th>
-            <th> Age </th>
-            <th> Phone Number</th>
-            <th> Gender</th>
-            <th> Status </th>
-          </tr>
-        </thead>
-        <tbody style="cursor: pointer">
-          <tr *ngIf="!userList.length">
-            <td colspan='6'> NO RECORD FOUND </td>
-          </tr>
-          <tr *ngFor="let user of userList" [class.blinking]="id.indexOf(user._id) > -1">
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.age}}</td>
-            <td>{{user.phoneNumber}}</td>
-            <td>{{user.gender}}</td>
-            <td>{{user.status}}</td>
-          </tr>
-        </tbody>
-      </table>
+  <hr> <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Age </th>
+        <th> Phone Number</th>
+        <th> Gender</th>
+        <th> Status </th>
+        <!-- <th> Action </th> -->
+      </tr>
+    </thead>
+    <tbody style="cursor: pointer">
+      <tr *ngIf="!userList.length">
+        <td colspan='6'> NO RECORD FOUND </td>
+      </tr>
+      <tr *ngFor="let user of userList" [class.blinking]="id.indexOf(user._id) > -1">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.status}}</td>
+        <!-- <td><a> Delete</a> | <a> Edit</a></td> -->
+      </tr>
+    </tbody>
+  </table>
   <button routerLink='/register' class="btn btn-success"> Add User</button> &nbsp;
 </div>
