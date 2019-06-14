@@ -35,7 +35,7 @@ export class AdminLoginComponent implements OnInit {
       return;
     }
 
-    this.apis.login(this.userLogin.value).subscribe(data => {
+    this.apis.adminLogin(this.userLogin.value).subscribe(data => {
       if (data['status'] === 200) {
         this.toastr.success(data['message']);
         this.route.navigate(['dashboard']);

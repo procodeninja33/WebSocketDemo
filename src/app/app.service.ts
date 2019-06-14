@@ -15,10 +15,14 @@ export class AppService {
 
   addedUser: Subject<any>;
   url = environment.serverUrl;
+  loginUser: Subject<any>;
+  logoutUser: Subject<any>;
 
-  constructor(private wsService: WebService,
+  constructor(private webService: WebService,
     private http: HttpClient) {
-    this.addedUser = <Subject<any>>wsService.connect();
+    this.addedUser = this.webService.connect();
+    this.loginUser = this.webService.loginUser();
+    this.logoutUser = this.webService.logoutUser();
   }
 
   getHeader() {
@@ -30,14 +34,27 @@ export class AppService {
   }
 
 
-  login(data) {
+  adminLogin(data) {
     return this.http.post(this.url + 'login', data);
+  }
+
+  login(data) {
+    return this.http.post(this.url + 'login', data).pipe(
+      map((res: Response) => {
+        if (res['status'] === 200) {
+          this.loginUser.next(res['data']);
+        }
+        return res;
+      })
+    );
   }
 
   registerUser(data) {
     return this.http.post(this.url + 'addUser', data).pipe(
       map((res: Response) => {
-        this.addedUser.next(res);
+        if (res['status'] === 200) {
+          this.addedUser.next(res['data']);
+        }
         return res;
       })
     );
@@ -46,4 +63,9 @@ export class AppService {
   getAllUser() {
     return this.http.get(this.url + 'userList', { headers: this.getHeader() });
   }
+
+  logout(data) {
+    this.logoutUser.next(data);
+  }
+
 }

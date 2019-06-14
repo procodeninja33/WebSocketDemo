@@ -12,17 +12,27 @@ export class DashboardComponent implements OnInit {
 
   userList = [];
   id = [];
+  loginUsers = [];
   constructor(private apis: AppService,
     private toastr: ToastrService,
     private route: Router) { }
 
   ngOnInit() {
+
+    /** when new user registered then live streaming */
     this.apis.addedUser.subscribe(data => {
-      console.log('hre is adta', data);
       this.toastr.success(data['message']);
-      this.userList.unshift(data['data']['data']);
-      this.id.push(data['data']['_id']);
+      this.userList.unshift(data['data']);
+      this.id.push(data['_id']);
     });
+
+    /** counte connected user */
+    this.apis.loginUser.subscribe(data => {
+      if (data['status'] === 200) {
+        this.loginUsers = data['data'];
+      }
+    });
+
     this.fetchUserList();
   }
 
@@ -33,9 +43,9 @@ export class DashboardComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('currunt_user');
     this.toastr.warning('logout Successfully.');
     this.route.navigate(['/']);
+    localStorage.removeItem('currunt_user');
   }
 
 }
