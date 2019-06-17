@@ -21,7 +21,7 @@
         <td colspan='6'> NO RECORD FOUND </td>
       </tr>
       <tr *ngFor="let user of userList" [class.blinking]="id.indexOf(user._id) > -1">
-        <td>{{ loginUsers.indexOf(user._id) > -1 ? 'ONLINE' : 'OFFLINE'}}</td>
+        <td><span [ngClass]="loginUsers.indexOf(user._id) > -1 ? 'online' : 'offline'"></span></td>
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.age}}</td>

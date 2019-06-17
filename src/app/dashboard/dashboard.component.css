@@ -48,3 +48,19 @@
  .left_btn {
      position: absolute;
  }
+
+.offline {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.online {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(36, 165, 25);
+    border-radius: 50%;
+    display: inline-block;
+  }
