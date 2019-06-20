@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
+In this project i have create Socket connection Angular with NodeJS and database MongoDB.
+
+Here are simple form for user registration, login and super admin login.... and there are two dashboard for user dashboard(home-page) and admin dashboard(dashboard)
+
+when user registred then admin are notifies and automatic added new record in there list via using socket connection.
+when user login in this page then user also show that green dot also they logout .. then admin now that this user are logout.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
