@@ -24,12 +24,12 @@ export class RegistrationComponent implements OnInit {
 
   formBuild() {
     this.userRegister = this._formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      age: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
-      gender: ['MALE', [Validators.required]]
+      usr_name: ['', [Validators.required]],
+      usr_email: ['', [Validators.required]],
+      usr_password: ['', [Validators.required]],
+      usr_age: ['', [Validators.required]],
+      usr_phoneNumber: ['', [Validators.required]],
+      usr_gender: ['MALE', [Validators.required]]
     });
   }
 
@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
     } else {
 
       this.apis.registerUser(this.userRegister.value).subscribe(data => {
-        console.log(data)
+        console.log(data);
         if (data['status'] === 200) {
           this.userRegister.reset();
           this.userRegister.patchValue({ gender: 'MALE' });

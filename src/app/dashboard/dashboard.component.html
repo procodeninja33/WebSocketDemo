@@ -22,11 +22,11 @@
       </tr>
       <tr *ngFor="let user of userList" [class.blinking]="id.indexOf(user._id) > -1">
         <td><span [ngClass]="loginUsers.indexOf(user._id) > -1 ? 'online' : 'offline'"></span></td>
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.age}}</td>
-        <td>{{user.phoneNumber}}</td>
-        <td>{{user.gender}}</td>
+        <td>{{user.usr_name}}</td>
+        <td>{{user.usr_email}}</td>
+        <td>{{user.usr_age}}</td>
+        <td>{{user.usr_phoneNumber}}</td>
+        <td>{{user.usr_gender}}</td>
         <!-- <td><a> Delete</a> | <a> Edit</a></td> -->
       </tr>
     </tbody>
