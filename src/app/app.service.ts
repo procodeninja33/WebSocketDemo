@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 
 export class AppService {
 
-
+  currentUserDetail: any = '';
   addedUser: Subject<any>;
   url = environment.serverUrl;
   loginUser: Subject<any>;
@@ -25,10 +25,24 @@ export class AppService {
     this.logoutUser = this.webService.logoutUser();
   }
 
+  setCurrentUserDetail(data) {
+    this.currentUserDetail = data;
+  }
+
+  // getCurrentUserDetail() {
+  //   if (this.currentUserDetail) {
+  //     return this.currentUserDetail;
+  //   } else {
+  //     return this.getUserDetail();
+  //   }
+  // }
+
   getHeader() {
     let headers = new HttpHeaders();
     const token = JSON.parse(localStorage.getItem('currunt_user'));
-    headers = headers.set('authorization', token['token']);
+    if (token) {
+      headers = headers.set('authorization', token['token']);
+    }
     headers = headers.set('Content-Type', 'application/json');
     return headers;
   }
@@ -36,6 +50,14 @@ export class AppService {
 
   adminLogin(data) {
     return this.http.post(this.url + 'login', data);
+  }
+
+  getUserDetail() {
+    return this.http.get(this.url + 'getUserByToken', { headers: this.getHeader() }).pipe(
+      map((res: Response) => {
+        return res['data'];
+      })
+    );
   }
 
   login(data) {

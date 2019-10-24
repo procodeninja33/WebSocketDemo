@@ -8,7 +8,15 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
-  ngOnInit() { }
+  constructor(
+    private apiService: AppService
+  ) { }
+  ngOnInit() {
+    // this.apiService.getUserDetail().subscribe((data) => {
+    //   if (data) {
+    //     this.apiService.setCurrentUserDetail(data['data']);
+    //   }
+    // });
+  }
 
 }

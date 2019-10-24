@@ -34,12 +34,19 @@ export class DashboardComponent implements OnInit {
     });
 
     this.fetchUserList();
+    // this.getCurrentUser();
   }
 
   fetchUserList() {
     this.apis.getAllUser().subscribe(data => {
       this.userList = data['data'];
     });
+  }
+
+  getCurrentUser() {
+    // this.apis.getCurrentUserDetail().subscribe(data => {
+    //   console.log('data', data)
+    // });
   }
 
   logout() {
